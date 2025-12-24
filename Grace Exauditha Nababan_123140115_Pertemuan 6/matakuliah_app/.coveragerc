@@ -1,0 +1,3 @@
+[run]
+source = matakuliah_app
+omit = matakuliah_app/test*
