@@ -1,0 +1,138 @@
+/* === LAYOUT UTAMA === */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-content {
+  flex: 1;
+  padding: 1.5rem;
+  background-color: #F4F4F2;
+  max-width: 1024px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+/* === NAVBAR === */
+.navbar {
+  background-color: #1A3C34;
+  color: #F4F4F2;
+  padding: 1rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  border-bottom: 1px solid #C8A165;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-container {
+  max-width: 1024px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo Area */
+.logo-area {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.logo-icon {
+  color: #C8A165;
+}
+
+/* === NAVIGATION BUTTONS (Desktop) === */
+.nav-btn {
+  background: none;
+  border: none;
+  font-size: 1rem;
+  font-weight: bold;
+  cursor: pointer;
+  color: #F4F4F2;
+  padding-bottom: 4px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.3s ease;
+  text-decoration: none; 
+  display: inline-block;
+}
+
+.nav-btn:hover {
+  color: #C8A165;
+}
+
+.nav-btn.active {
+  color: #C8A165;
+  border-bottom: 2px solid #C8A165;
+}
+
+/* === MOBILE MENU === */
+.mobile-dropdown {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  right: 0;
+  background-color: #1A3C34;
+  border-top: 1px solid #C8A165;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  animation: slideDown 0.2s ease-out;
+}
+
+.mobile-menu-container {
+  max-width: 1024px;
+  margin: 0 auto;
+}
+
+.mobile-menu-item {
+  width: 100%;
+  text-align: left;
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  background: transparent;
+  color: #F4F4F2;
+  border: none;
+  border-bottom: 1px solid rgba(200, 161, 101, 0.1);
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+  text-decoration: none; 
+  box-sizing: border-box; 
+}
+
+.mobile-menu-item:hover {
+  background-color: rgba(200, 161, 101, 0.1);
+}
+
+.mobile-menu-item.active {
+  color: #C8A165;
+}
+
+/* === PAGE HEADER === */
+.page-header {
+  margin-bottom: 2rem;
+}
+
+.page-title {
+  font-size: 1.875rem;
+  font-weight: bold;
+  color: #1A3C34;
+  margin: 0;
+}
+
+.page-subtitle {
+  color: #4B5563;
+  margin-top: 0.25rem;
+}
+
+/* Keyframes Animasi */
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

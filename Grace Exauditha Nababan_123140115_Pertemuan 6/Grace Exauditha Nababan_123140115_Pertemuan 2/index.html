@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Do-Fun Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header>
+        <h1>Do-Fun</h1>
+    </header>
+
+    <main class="dashboard-grid">
+        <section class="widget" id="tugas-widget">
+            <div class="widget-header">
+                <h2>📋 List Tugas</h2>
+                <button id="add-tugas-btn" class="add-btn" aria-label="Tambah Tugas">+</button>
+            </div>
+            <ul id="tugas-list" class="item-list">
+                </ul>
+        </section>
+
+        <section class="widget" id="kalender-widget">
+            <div class="widget-header">
+                <h2>📅 Kalender</h2>
+            </div>
+            <div class="calendar-nav">
+                <button id="prev-month-btn">&lt;</button>
+                <h3 id="current-month-year">...</h3>
+                <button id="next-month-btn">&gt;</button>
+            </div>
+            <div class="calendar-weekdays">
+                <div>Min</div>
+                <div>Sen</div>
+                <div>Sel</div>
+                <div>Rab</div>
+                <div>Kam</div>
+                <div>Jum</div>
+                <div>Sab</div>
+            </div>
+            <div id="calendar-days" class="calendar-days-grid">
+                </div>
+        </section>
+
+        <section class="widget" id="buku-widget">
+            <div class="widget-header">
+                <h2>📚 List Baca Buku</h2>
+                <button id="add-buku-btn" class="add-btn" aria-label="Tambah Buku">+</button>
+            </div>
+            <ul id="buku-list" class="item-list">
+                </ul>
+        </section>
+
+        <section class="widget" id="brain-dump-widget">
+            <div class="widget-header">
+                <h2>💡 Brain Dump</h2>
+                <button id="save-brain-dump-btn" class="save-btn">Simpan</button>
+            </div>
+            <textarea id="brain-dump-area" placeholder="Tulis semua idemu di sini..."></textarea>
+        </section>
+    </main>
+
+    <div id="modal-backdrop" class="hidden"></div>
+
+    <div id="tugas-modal" class="modal hidden">
+        <h3 id="tugas-modal-title">Tambah Tugas Baru</h3>
+        <form id="tugas-form">
+            <input type="hidden" id="tugas-id">
+            <div class="form-group">
+                <label for="nama-tugas">Nama Tugas</label>
+                <input type="text" id="nama-tugas" required>
+            </div>
+            <div class="form-group">
+                <label for="deadline-tugas">Deadline</label>
+                <input type="date" id="deadline-tugas" required>
+            </div>
+            <button type="submit" class="save-btn">Simpan</button>
+        </form>
+    </div>
+
+    <div id="buku-modal" class="modal hidden">
+        <h3 id="buku-modal-title">Tambah Buku Baru</h3>
+        <form id="buku-form">
+            <input type="hidden" id="buku-id">
+            <div class="form-group">
+                <label for="judul-buku">Judul Buku</label>
+                <input type="text" id="judul-buku" required>
+            </div>
+            <div class="form-group">
+                <label for="target-buku">Jumlah Halaman/Chapter</label>
+                <input type="text" id="target-buku" placeholder="Cth: 300 halaman / 15 chapter">
+            </div>
+            <div class="form-group">
+                <label for="platform-buku">Platform</label>
+                <input type="text" id="platform-buku" placeholder="Cth: Fisik, Kindle, PDF">
+            </div>
+            <button type="submit" class="save-btn">Simpan</button>
+        </form>
+    </div>
+
+</body>
+</html>

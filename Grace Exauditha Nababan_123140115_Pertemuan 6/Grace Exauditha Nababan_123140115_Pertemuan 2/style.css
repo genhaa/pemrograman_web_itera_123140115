@@ -1,0 +1,334 @@
+:root {
+    --color-navy-darkest: #0a192f;
+    --color-navy-dark: #172a45;
+    --color-navy-light: #304a6d;
+    --color-yellow-primary: #f9a826;
+    --color-yellow-dark: #f57f17;
+    --color-text-light: #ccd6f6;
+    --color-text-dim: #8892b0;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--color-navy-darkest);
+    color: var(--color-text-light);
+    padding: 20px;
+}
+
+h1, h2, h3 {
+    color: var(--color-yellow-primary);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+button {
+    cursor: pointer;
+    font-weight: bold;
+    border-radius: 5px;
+    border: none;
+}
+
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; 
+    grid-template-rows: auto auto; 
+    gap: 20px;
+}
+
+#kalender-widget {
+    grid-column: 1 / 2; 
+    grid-row: 1 / 2;    
+}
+
+#tugas-widget {
+    grid-column: 2 / 3; 
+    grid-row: 1 / 3;    
+}
+
+#buku-widget {
+    grid-column: 3 / 4; 
+    grid-row: 1 / 3;    
+}
+
+#brain-dump-widget {
+    grid-column: 1 / 2; 
+    grid-row: 2 / 3;    
+}
+
+.widget {
+    background-color: var(--color-navy-dark);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+}
+
+.widget-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--color-navy-light);
+}
+
+.add-btn {
+    background-color: var(--color-yellow-primary);
+    color: var(--color-navy-dark);
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    font-size: 20px;
+    line-height: 30px;
+    text-align: center;
+    transition: background-color 0.2s;
+}
+
+.add-btn:hover {
+    background-color: var(--color-yellow-dark);
+}
+
+.save-btn {
+    background-color: var(--color-yellow-primary);
+    color: var(--color-navy-dark);
+    padding: 10px 15px;
+    font-size: 14px;
+    transition: background-color 0.2s;
+}
+
+.save-btn:hover {
+    background-color: var(--color-yellow-dark);
+}
+
+.item-list {
+    list-style: none;
+    max-height: 300px;
+    overflow-y: auto;
+}
+
+.item-list li {
+    background-color: var(--color-navy-darkest);
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.item-info {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.item-info input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+}
+
+.item-info .item-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.item-info .item-text small {
+    color: var(--color-text-dim);
+    font-size: 12px;
+    margin-top: 2px;
+}
+
+.item-controls button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    color: var(--color-text-dim);
+    margin-left: 8px;
+    transition: color 0.2s;
+}
+
+.item-controls button:hover {
+    color: var(--color-yellow-primary);
+}
+
+.item-list .done .item-text {
+    text-decoration: line-through;
+    opacity: 0.6;
+}
+
+.calendar-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+.calendar-nav button {
+    background: var(--color-navy-light);
+    color: var(--color-text-light);
+    padding: 5px 10px;
+}
+
+.calendar-weekdays,
+.calendar-days-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+    text-align: center;
+}
+
+.calendar-weekdays div {
+    font-weight: bold;
+    color: var(--color-text-dim);
+    font-size: 14px;
+}
+
+.calendar-days-grid div {
+    background-color: var(--color-navy-darkest);
+    padding: 10px 5px;
+    border-radius: 4px;
+    font-size: 14px;
+    min-height: 40px;
+    position: relative;
+}
+
+.calendar-days-grid .empty-day {
+    background: none;
+}
+
+.calendar-days-grid .has-deadline::after {
+    content: '';
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--color-yellow-primary);
+}
+
+.calendar-days-grid .today {
+    background-color: var(--color-navy-light);
+    font-weight: bold;
+}
+
+#brain-dump-area {
+    width: 100%;
+    flex-grow: 1; 
+    min-height: 250px;
+    background-color: var(--color-navy-darkest);
+    color: var(--color-text-light);
+    border: 1px solid var(--color-navy-light);
+    border-radius: 5px;
+    padding: 10px;
+    font-family: inherit;
+    resize: vertical;
+}
+
+#save-brain-dump-btn {
+    margin-top: 10px;
+    align-self: flex-end; 
+}
+
+.hidden {
+    display: none !important;
+}
+
+#modal-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 10;
+}
+
+.modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: var(--color-navy-dark);
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    z-index: 20;
+    width: 90%;
+    max-width: 450px;
+}
+
+.modal h3 {
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--color-text-dim);
+    font-weight: bold;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--color-navy-light);
+    background-color: var(--color-navy-darkest);
+    color: var(--color-text-light);
+    font-size: 16px;
+}
+
+.modal form {
+    display: flex;
+    flex-direction: column;
+}
+
+.modal form button[type="submit"] {
+    margin-top: 10px;
+    padding: 12px;
+    font-size: 16px;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr; 
+        grid-template-rows: auto;   
+    }
+
+    #kalender-widget {
+        grid-column: 1 / -1; 
+        grid-row: 1;         
+    }
+    
+    #tugas-widget {
+        grid-column: 1 / -1; 
+        grid-row: 2;         
+    }
+
+    #buku-widget {
+        grid-column: 1 / -1; 
+        grid-row: 3;         
+    }
+
+    #brain-dump-widget {
+        grid-column: 1 / -1; 
+        grid-row: 4;         
+    }
+}

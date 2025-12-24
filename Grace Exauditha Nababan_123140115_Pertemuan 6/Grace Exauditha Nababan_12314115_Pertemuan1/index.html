@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KaTu - Manajemen Tugas Mahasiswa</title>
+    <link rel="stylesheet" href="style.css"> 
+</head>
+<body>
+    <div id="app-container">
+        <header>
+            <h1>KaTu 📚</h1>
+            <h2>Kelender Tugas Mahasiswa</h2>
+            <p id="pending-tasks-count" class="info-card">Tugas Belum Selesai: <span id="count">0</span></p>
+        </header>
+
+        <div class="card add-task-module">
+            <h2>Tambah Tugas Baru</h2>
+            <form id="task-form">
+                <div class="form-row">
+                    <input type="text" id="task-name" placeholder="Nama Tugas (Wajib)" required>
+                    <select id="task-category" required>
+                        <option value="" disabled selected>Pilih Kategori (Wajib)</option>
+                        <option value="Kuliah">Kuliah</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div id="course-input-group" style="display: none;">
+                    <input type="text" id="task-course" placeholder="Mata Kuliah (Optional)">
+                </div>
+
+                <div class="form-row">
+                    <input type="date" id="task-deadline" required> 
+                    <div class="urgent-checkbox-group">
+                        <input type="checkbox" id="task-urgent">
+                        <label for="task-urgent">Prioritas / Urgent</label>
+                    </div>
+                </div>
+
+                <p id="form-error" class="error-message"></p>
+                <button type="submit">Tambah Tugas</button>
+            </form>
+        </div>
+        
+        <hr class="separator">
+
+        <div class="card filter-module">
+            <h2>Filter & Cari</h2>
+            <div id="filters">
+                <select id="filter-category">
+                    <option value="all">Semua Kategori</option>
+                    <option value="Kuliah">Kuliah</option>
+                    <option value="Lainnya">Lainnya</option>
+                </select>
+                <select id="filter-status">
+                    <option value="all">Semua Status</option>
+                    <option value="pending">Belum Selesai</option>
+                    <option value="completed">Selesai</option>
+                </select>
+                <input type="text" id="search-text" placeholder="Cari Matkul/Tugas...">
+            </div>
+        </div>
+
+        <hr class="separator">
+        
+        <div class="task-list-module">
+            <h2>Daftar Tugas</h2>
+            <ul id="task-list"></ul>
+        </div>
+    </div>
+
+    <script src="script.js"></script> 
+</body>
+</html>

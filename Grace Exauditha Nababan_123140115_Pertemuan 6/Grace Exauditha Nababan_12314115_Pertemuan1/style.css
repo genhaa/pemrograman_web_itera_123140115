@@ -1,0 +1,269 @@
+:root {
+    --color-mint: #84DCCF;
+    --color-soft-pink: #FFB3C1;
+    --color-dark: #333333;
+    --color-bg-chill: #E6E6FA;
+    --color-bg-container: #FFF0F5;
+    --color-bg-card: #FFFFFF;
+    --color-accent-dark: #3E8F8F;
+    --color-error: #e74c3c;
+}
+
+body {
+    /* FONT UTAMA: Menggunakan Trebuchet/Verdana */
+    font-family: 'Trebuchet MS', Verdana, Geneva, Tahoma, sans-serif; 
+    background-color: var(--color-bg-chill);
+    color: var(--color-dark);
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    /* FONT JUDUL UTAMA: Arial Rounded MT Bold */
+    font-family: 'Arial Rounded MT Bold', 'Trebuchet MS', sans-serif; 
+    font-weight: bold; 
+    color: var(--color-dark);
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+h2 {
+    /* FONT SUB-JUDUL: Menggunakan font body tapi lebih tebal */
+    font-family: inherit; 
+    font-weight: bold;
+    color: var(--color-accent-dark);
+    border-bottom: 2px solid var(--color-mint);
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+header h1 {
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+header h2 {
+    margin-top: 0;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: normal;
+}
+
+.info-card {
+    text-align: center;
+    font-weight: 800; 
+    padding: 15px;
+    background-color: var(--color-soft-pink);
+    border-radius: 8px;
+    color: var(--color-dark);
+    margin-bottom: 20px;
+}
+
+.card {
+    background-color: var(--color-bg-card);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    margin-bottom: 20px;
+}
+
+/* --- Form and Input Styling --- */
+
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-row input:not([type="checkbox"]),
+.form-row select {
+    flex: 1;
+    width: 100%;
+    margin-bottom: 0;
+    font-family: inherit; 
+}
+
+.add-task-module input:not([type="checkbox"]):focus,
+.add-task-module select:focus {
+    border-color: var(--color-soft-pink);
+    box-shadow: 0 0 5px rgba(255, 179, 193, 0.6);
+    outline: none;
+}
+
+.add-task-module input:not([type="checkbox"]),
+.add-task-module select,
+.filter-module input,
+.filter-module select,
+#task-form button {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-mint);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: inherit;
+}
+
+.urgent-checkbox-group {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    padding-left: 10px;
+    background-color: white;
+    border: 1px solid var(--color-mint);
+    border-radius: 8px;
+}
+
+.urgent-checkbox-group input[type="checkbox"] {
+    width: auto;
+    margin: 0;
+    accent-color: var(--color-soft-pink);
+}
+
+#filters {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+#filters select,
+#filters input {
+    flex: 1;
+    min-width: 150px;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--color-mint);
+    border-radius: 8px;
+    box-sizing: border-box;
+    background-color: white;
+    font-family: inherit;
+}
+
+#task-form button {
+    background-color: var(--color-mint);
+    color: var(--color-dark);
+    font-weight: 800; 
+    cursor: pointer;
+    transition: background-color 0.3s;
+    border: none;
+}
+
+#task-form button:hover {
+    background-color: var(--color-soft-pink);
+}
+
+.separator {
+    border: 0;
+    height: 1px;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), var(--color-mint), rgba(0, 0, 0, 0));
+    margin: 30px 0;
+}
+
+/* --- Task List Styling --- */
+
+#task-list {
+    list-style: none;
+    padding: 0;
+}
+
+.task-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    background-color: #FAFAFA;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    border-left: 5px solid var(--color-soft-pink);
+}
+
+.task-item.completed {
+    opacity: 0.7;
+    background-color: var(--color-bg-chill);
+    border-left: 5px solid var(--color-mint);
+    text-decoration: line-through;
+}
+
+.task-item.urgent {
+    border-right: 5px solid var(--color-soft-pink);
+    box-shadow: 0 4px 12px rgba(255, 179, 193, 0.4);
+}
+
+.task-item.urgent .task-name:before {
+    content: "🔥 ";
+    color: var(--color-error);
+    font-weight: bold;
+}
+
+.task-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.task-details {
+    flex-grow: 1;
+    font-family: inherit;
+}
+
+.task-name {
+    font-weight: 800; 
+    margin-bottom: 5px;
+    color: var(--color-dark);
+    font-family: inherit;
+}
+
+.task-meta {
+    font-size: 0.85em;
+    color: #777;
+    font-family: inherit; 
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    margin-left: 10px;
+    transition: color 0.2s;
+    padding: 5px;
+}
+
+.complete-btn {
+    color: var(--color-mint);
+}
+
+.delete-btn {
+    color: var(--color-soft-pink);
+}
+
+.edit-btn {
+    color: var(--color-accent-dark);
+}
+
+.complete-btn:hover {
+    color: #27ae60;
+}
+
+.delete-btn:hover {
+    color: #c0392b;
+}
+
+.edit-btn:hover {
+    color: #0E7F7F;
+}
+
+.error-message {
+    color: var(--color-error);
+    font-size: 0.9em;
+    margin-top: -5px;
+    margin-bottom: 15px;
+    font-weight: bold;
+}

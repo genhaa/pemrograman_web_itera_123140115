@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Lora:ital,wght@0,400;0,600;0,700;1,400&display=swap');
+
+/* Global Reset & Body */
+body {
+  font-family: 'Lato', sans-serif;
+  background-color: #F4F4F2; 
+  color: #2C2C2C; 
+  margin: 0;
+  padding: 0;
+}
+
+/* Typography Global */
+h1, h2, h3, h4, h5, h6, .font-heading {
+  font-family: 'Lora', serif;
+  color: #1A3C34; /* Forest Green */
+}
+
+button {
+  cursor: pointer;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #F4F4F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #1A3C34;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #C8A165;
+}
+
+/* Helper Classes (Optional) */
+.desktop-menu { display: none !important; }
+.mobile-menu-btn { display: block !important; }
+
+@media (min-width: 768px) {
+    .desktop-menu { display: flex !important; }
+    .mobile-menu-btn { display: none !important; }
+}
